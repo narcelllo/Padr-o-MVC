@@ -1,7 +1,5 @@
 print("ué")
 
-def uaiPylint() -> None:
+def uai_Pylint() -> None:
     pass
-
-
 
