@@ -1,5 +1,0 @@
-print("ué")
-
-def uai_Pylint() -> None:
-    pass
-
