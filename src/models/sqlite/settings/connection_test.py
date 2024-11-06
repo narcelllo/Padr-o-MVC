@@ -1,6 +1,6 @@
 import pytest
-from .connection import db_connection_handler
 from sqlalchemy import Engine
+from .connection import db_connection_handler
 
 @pytest.mark.skip(reason="teste de integração com banco")
 def test_connect_to_db():
