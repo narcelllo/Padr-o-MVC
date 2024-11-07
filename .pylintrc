@@ -1,6 +1,7 @@
 ﻿[MAIN]
 
 disable =
+      C0304, #missing-final-newline
       C0303, #trailing-whitespace
       C0114, # Missing-module-docstring
       C0115, # Missing-class-docstring

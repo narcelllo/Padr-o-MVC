@@ -2,7 +2,7 @@ import pytest
 from src.models.sqlite.settings.connection import db_connection_handler
 from .pets_repository import PestsRepository
 
-db_connection_handler.connect_to_db()
+#db_connection_handler.connect_to_db()
 
 @pytest.mark.skip(reason="Interação com o banco de dados")
 def test_list_pets():
@@ -10,3 +10,9 @@ def test_list_pets():
     response = repo.list_pets()
     print()
     print(response)
+
+@pytest.mark.skip(reason="Delet pet")
+def test_delete_pet():
+    name = "belinha"
+    repo = PestsRepository(db_connection_handler)
+    repo.delet_pets(name)
