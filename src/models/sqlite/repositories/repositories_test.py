@@ -11,8 +11,8 @@ def test_list_pets():
     print()
     print(response)
 
-@pytest.mark.skip(reason="Delet pet")
+@pytest.mark.skip(reason="Delete pet")
 def test_delete_pet():
     name = "belinha"
     repo = PestsRepository(db_connection_handler)
-    repo.delet_pets(name)
+    repo.delete_pets(name)
