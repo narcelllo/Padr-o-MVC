@@ -18,10 +18,10 @@ class PeopleRepository(PeopleRepositoryInterface):
                 )
                 database.session.add(person_data)
                 database.session.commit()
-            except:
+            except Exception:
                 database.session.rollback()
-                raise exception
-            
+                raise Exception("db rollback")
+
     def get_person(self, person_id: int) -> PeopleTable:
         with self.__db_connection as database:
             try:

@@ -1,6 +1,8 @@
 ﻿[MAIN]
 
 disable =
+      W0707, #raise-missing-from
+      W0719, #broad-exception-raised
       C0304, #missing-final-newline
       C0303, #trailing-whitespace
       C0114, # Missing-module-docstring
