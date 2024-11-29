@@ -1,7 +1,15 @@
+import logging
 from sqlalchemy.orm.exc import NoResultFound
 from src.models.sqlite.entities.people import PeopleTable
 from src.models.sqlite.entities.pets import PetsTable
 from src.models.sqlite.interfaces.people_repository import PeopleRepositoryInterface
+
+#config Logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S"
+)
 
 class PeopleRepository(PeopleRepositoryInterface):
     def __init__(self, db_connection) -> None:
@@ -16,6 +24,8 @@ class PeopleRepository(PeopleRepositoryInterface):
                     age = age,
                     pet_id = pet_id
                 )
+                logging.debug("person_data - people_repository.py %s:", vars(person_data))
+
                 database.session.add(person_data)
                 database.session.commit()
             except Exception:
