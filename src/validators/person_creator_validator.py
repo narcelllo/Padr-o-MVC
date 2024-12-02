@@ -13,4 +13,4 @@ def person_creator_validator(http_request: HttpRequest) -> None:
     try:
         BodyData(**http_request.body)    
     except ValidationError as error:
-        raise HttpUnprocessableEntityError(error.errors())
+        raise HttpUnprocessableEntityError(error.errors()) from error
