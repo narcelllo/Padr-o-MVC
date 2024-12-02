@@ -2,8 +2,8 @@ import re
 import logging
 import json
 from src.models.sqlite.interfaces.people_repository import PeopleRepositoryInterface
-from .interfaces.person_creator_controller import PersonCreatorControllerInterface
 from src.errors.errors_types.http_bad_request import BadRequestError
+from .interfaces.person_creator_controller import PersonCreatorControllerInterface
 
 #config Logging
 logging.basicConfig(
@@ -22,7 +22,8 @@ class PersonCreatorController(PersonCreatorControllerInterface):
         age = person_info["age"]
         pet_id = person_info["pet_id"]
 
-        logging.debug("people_repository - person_creator_controller.py %s:", json.dumps(person_info, indent=4))
+        logging.debug("people_repository - person_creator_controller.py %s:",
+                       json.dumps(person_info, indent=4))
 
         self.__validate_first_and_last_name(first_name, last_name)
         self.__insert_person_in_db(first_name, last_name, age, pet_id)
@@ -47,3 +48,4 @@ class PersonCreatorController(PersonCreatorControllerInterface):
                 "attributes": person_info
             }
         }
+    
