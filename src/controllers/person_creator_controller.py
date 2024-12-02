@@ -3,6 +3,7 @@ import logging
 import json
 from src.models.sqlite.interfaces.people_repository import PeopleRepositoryInterface
 from .interfaces.person_creator_controller import PersonCreatorControllerInterface
+from src.errors.errors_types.http_bad_request import BadRequestError
 
 #config Logging
 logging.basicConfig(
@@ -33,7 +34,7 @@ class PersonCreatorController(PersonCreatorControllerInterface):
         non_valid_caracteres = re.compile(r'[^a-zA-Z\' ]')
 
         if non_valid_caracteres.search(first_name) or non_valid_caracteres.search(last_name):
-            raise Exception("Invalid name!")
+            raise BadRequestError("Invalid name!")
         
     def __insert_person_in_db(self, first_name: str, last_name: str, age: int, pet_id: int) -> None:
         self._people_repository.insert_person(first_name, last_name, age, pet_id)

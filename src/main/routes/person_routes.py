@@ -17,6 +17,6 @@ def create_person():
 def finder_person(person_id):
     http_request = HttpRequest(param={"person_id": person_id})
     view = person_finder_composer()
-    
+
     http_response = view.handle(http_request)
     return jsonify(http_response.body), http_response.status_code
