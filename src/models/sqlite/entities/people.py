@@ -10,6 +10,6 @@ class PeopleTable(Base):
     age = Column(BIGINT, nullable=False)
     pet_id = Column(BIGINT, ForeignKey("pets.id"))
 
-    def __reper__(self):
+    def __repr__(self):
         return f"People [name={self.name}, last_name={self.last_name}, pet_id{self.pet_id}]"
     
